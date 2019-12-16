@@ -1,4 +1,4 @@
-version 0.2
+version 0.3
 
 phases:
     install:
@@ -9,7 +9,7 @@ phases:
             - yarn        
     build:
         commands:
-            - echo "this is working"
+            - echo "this is working perfectly"
             - docker build .
             - env
 
