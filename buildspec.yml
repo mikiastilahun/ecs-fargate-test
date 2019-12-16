@@ -9,6 +9,6 @@ phases:
   build:
     commands:
       - echo "this is working perfectly"
-      - docker build . -t 577033047846.dkr.ecr.us-east-1.amazonaws.com/test:$CODEBUILD_BUILD_ID
-      - docke push 577033047846.dkr.ecr.us-east-1.amazonaws.com/test:$CODEBUILD_BUILD_ID
+      - docker build -t 577033047846.dkr.ecr.us-east-1.amazonaws.com/test:$CODEBUILD_BUILD_ID .
+      - docker push 577033047846.dkr.ecr.us-east-1.amazonaws.com/test:$CODEBUILD_BUILD_ID
       - echo "peace"
