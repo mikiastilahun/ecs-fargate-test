@@ -10,5 +10,6 @@ phases:
     commands:
       - echo "this is working perfectly"
       - docker build -t 577033047846.dkr.ecr.us-east-1.amazonaws.com/$CODEBUILD_BUILD_ID .
+      - $(aws ecr get-login --no-include-email --region $CI_REGION)
       - docker push 577033047846.dkr.ecr.us-east-1.amazonaws.com/$CODEBUILD_BUILD_ID
       - echo "peace"
