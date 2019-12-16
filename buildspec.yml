@@ -2,12 +2,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 10.16.3
   pre_build:
     commands:
       - yarn
   build:
     commands:
       - echo "this is working perfectly"
-      - docker build .
-      - env
+      - docker build . -t 577033047846.dkr.ecr.us-east-1.amazonaws.com/test:$CODEBUILD_BUILD_ID
+      - docke push 577033047846.dkr.ecr.us-east-1.amazonaws.com/test:$CODEBUILD_BUILD_ID
+      - echo "peace"
