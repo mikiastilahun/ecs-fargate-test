@@ -4,6 +4,9 @@ phases:
     install:
         runtime-versions: 
             nodejs: 10
+    pre_build:
+        commands:
+            - yarn        
     build:
         commands:
             - echo "this is working"
