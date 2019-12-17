@@ -10,6 +10,8 @@ phases:
     commands:
       - echo "this is working perfectly"
       - docker build -t 577033047846.dkr.ecr.us-east-1.amazonaws.com/$CODEBUILD_BUILD_ID .
+      - docker tag  577033047846.dkr.ecr.us-east-1.amazonaws.com/$CODEBUILD_BUILD_ID  577033047846.dkr.ecr.us-east-1.amazonaws.com/test:latest
       - $(aws ecr get-login --no-include-email --region us-east-1)
       - docker push 577033047846.dkr.ecr.us-east-1.amazonaws.com/$CODEBUILD_BUILD_ID
-      - echo "peace"
+      - docker push  577033047846.dkr.ecr.us-east-1.amazonaws.com/test:latest
+      - aws ecs update-service --cluster test1 --service test1 --force-new-deployment --region us-east-1
